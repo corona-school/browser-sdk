@@ -1,0 +1,1 @@
+{"version":3,"file":"focusObserver.js","sourceRoot":"","sources":["../../../../src/domain/record/observers/focusObserver.ts"],"names":[],"mappings":";;;AACA,sDAAoE;AAKpE,SAAgB,iBAAiB,CAAC,OAAsB;IACtD,OAAO,IAAA,gCAAiB,EAAC,MAAM,EAAE,4DAAiC,EAAE;QAClE,OAAO,CAAC,EAAE,SAAS,EAAE,QAAQ,CAAC,QAAQ,EAAE,EAAE,CAAC,CAAA;IAC7C,CAAC,CAAC,CAAC,IAAI,CAAA;AACT,CAAC;AAJD,8CAIC"}

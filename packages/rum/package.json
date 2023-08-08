@@ -12,7 +12,7 @@
     "build:esm": "rm -rf esm && tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@datadog/browser-core": "4.45.0",
+    "@datadog/browser-core": "https://gitpkg.now.sh/corona-school/browser-sdk/packages/core?lern-fair-features",
     "@datadog/browser-rum-core": "4.45.0",
     "@datadog/browser-worker": "4.45.0"
   },
