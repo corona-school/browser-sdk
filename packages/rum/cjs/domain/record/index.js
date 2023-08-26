@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getSerializedNodeId = exports.createElementsScrollPositions = exports.serializeDocument = exports.serializeNodeWithId = exports.record = void 0;
+var record_1 = require("./record");
+Object.defineProperty(exports, "record", { enumerable: true, get: function () { return record_1.record; } });
+var serialization_1 = require("./serialization");
+Object.defineProperty(exports, "serializeNodeWithId", { enumerable: true, get: function () { return serialization_1.serializeNodeWithId; } });
+Object.defineProperty(exports, "serializeDocument", { enumerable: true, get: function () { return serialization_1.serializeDocument; } });
+var elementsScrollPositions_1 = require("./elementsScrollPositions");
+Object.defineProperty(exports, "createElementsScrollPositions", { enumerable: true, get: function () { return elementsScrollPositions_1.createElementsScrollPositions; } });
+var serialization_2 = require("./serialization");
+Object.defineProperty(exports, "getSerializedNodeId", { enumerable: true, get: function () { return serialization_2.getSerializedNodeId; } });
+//# sourceMappingURL=index.js.map
