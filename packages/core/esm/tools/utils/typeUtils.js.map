@@ -1,0 +1,1 @@
+{"version":3,"file":"typeUtils.js","sourceRoot":"","sources":["../../../src/tools/utils/typeUtils.ts"],"names":[],"mappings":"AAAA;;GAEG;AACH,MAAM,UAAU,OAAO,CAAC,KAAc;IACpC,IAAI,KAAK,KAAK,IAAI,EAAE;QAClB,OAAO,MAAM,CAAA;KACd;IACD,IAAI,KAAK,CAAC,OAAO,CAAC,KAAK,CAAC,EAAE;QACxB,OAAO,OAAO,CAAA;KACf;IACD,OAAO,OAAO,KAAK,CAAA;AACrB,CAAC"}
