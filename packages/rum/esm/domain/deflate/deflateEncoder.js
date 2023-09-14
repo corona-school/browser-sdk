@@ -1,0 +1,73 @@
+import { addEventListener, addTelemetryDebug, concatBuffers } from '@datadog/browser-core';
+export function createDeflateEncoder(configuration, worker, streamId) {
+    var rawBytesCount = 0;
+    var compressedData = [];
+    var compressedDataTrailer;
+    var nextWriteActionId = 0;
+    var pendingWriteActions = [];
+    var removeMessageListener = addEventListener(configuration, worker, 'message', function (_a) {
+        var data = _a.data;
+        if (data.type !== 'wrote' || data.streamId !== streamId) {
+            return;
+        }
+        var nextPendingAction = pendingWriteActions.shift();
+        if (nextPendingAction && nextPendingAction.id === data.id) {
+            if (data.id === 0) {
+                // Initial state
+                rawBytesCount = data.additionalBytesCount;
+                compressedData = [data.result];
+            }
+            else {
+                rawBytesCount += data.additionalBytesCount;
+                compressedData.push(data.result);
+            }
+            compressedDataTrailer = data.trailer;
+            nextPendingAction.callback();
+        }
+        else {
+            removeMessageListener();
+            addTelemetryDebug('Worker responses received out of order.');
+        }
+    }).stop;
+    return {
+        get encodedBytes() {
+            if (!compressedData.length) {
+                return new Uint8Array(0);
+            }
+            return concatBuffers(compressedData.concat(compressedDataTrailer));
+        },
+        get encodedBytesCount() {
+            if (!compressedData.length) {
+                return 0;
+            }
+            return compressedData.reduce(function (total, buffer) { return total + buffer.length; }, 0) + compressedDataTrailer.length;
+        },
+        get rawBytesCount() {
+            return rawBytesCount;
+        },
+        write: function (data, callback) {
+            worker.postMessage({
+                action: 'write',
+                id: nextWriteActionId,
+                data: data,
+                streamId: streamId,
+            });
+            pendingWriteActions.push({
+                id: nextWriteActionId,
+                callback: callback,
+            });
+            nextWriteActionId += 1;
+        },
+        reset: function () {
+            worker.postMessage({
+                action: 'reset',
+                streamId: streamId,
+            });
+            nextWriteActionId = 0;
+        },
+        stop: function () {
+            removeMessageListener();
+        },
+    };
+}
+//# sourceMappingURL=deflateEncoder.js.map

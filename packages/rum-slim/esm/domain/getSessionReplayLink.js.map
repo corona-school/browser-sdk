@@ -1,0 +1,1 @@
+{"version":3,"file":"getSessionReplayLink.js","sourceRoot":"","sources":["../../src/domain/getSessionReplayLink.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,mBAAmB,EAAE,MAAM,2BAA2B,CAAA;AAE/D,MAAM,UAAU,oBAAoB,CAAC,aAA+B;IAClE,OAAO,mBAAmB,CAAC,aAAa,EAAE,EAAE,SAAS,EAAE,cAAc,EAAE,CAAC,CAAA;AAC1E,CAAC"}
