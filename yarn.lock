@@ -307,6 +307,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@datadog/browser-core@https://gitpkg.vercel.app/corona-school/browser-sdk/packages/core?v5.22-lern-fair-packages":
+  version: 5.22.0
+  resolution: "@datadog/browser-core@https://gitpkg.vercel.app/corona-school/browser-sdk/packages/core?v5.22-lern-fair-packages"
+  checksum: 10c0/b78e9609c2825a3d65b960aa6788001d46a6cef12f9b051f1b00752ae932adf51b7071068186cd1c898f82de41a29c009b2876fa7334e4b1743ee3efc5bebb3f
+  languageName: node
+  linkType: hard
+
 "@datadog/browser-core@npm:5.22.0, @datadog/browser-core@workspace:*, @datadog/browser-core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@datadog/browser-core@workspace:packages/core"
@@ -353,7 +360,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/browser-rum@workspace:packages/rum"
   dependencies:
-    "@datadog/browser-core": "npm:5.22.0"
+    "@datadog/browser-core": "https://gitpkg.vercel.app/corona-school/browser-sdk/packages/core?v5.22-lern-fair-packages"
     "@datadog/browser-rum-core": "npm:5.22.0"
     "@types/pako": "npm:2.0.3"
     pako: "npm:2.1.0"
