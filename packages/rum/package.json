@@ -13,7 +13,7 @@
     "replace-build-env": "node ../../scripts/build/replace-build-env.js"
   },
   "dependencies": {
-    "@datadog/browser-core": "5.22.0",
+    "@datadog/browser-core": "https://gitpkg.now.sh/corona-school/browser-sdk/packages/core?v5.22-lern-fair-packages",
     "@datadog/browser-rum-core": "5.22.0"
   },
   "peerDependencies": {
