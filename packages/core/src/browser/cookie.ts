@@ -1,6 +1,6 @@
 import { display } from '../tools/display'
 import { ONE_MINUTE, ONE_SECOND } from '../tools/utils/timeUtils'
-import { findCommaSeparatedValue, findCommaSeparatedValues, generateUUID } from '../tools/utils/stringUtils'
+import { findCommaSeparatedValues, generateUUID } from '../tools/utils/stringUtils'
 
 export interface CookieOptions {
   secure?: boolean
@@ -9,19 +9,12 @@ export interface CookieOptions {
   domain?: string
 }
 
-export function setCookie(name: string, value: string, expireDelay: number, options?: CookieOptions) {
-  const date = new Date()
-  date.setTime(date.getTime() + expireDelay)
-  const expires = `expires=${date.toUTCString()}`
-  const sameSite = options && options.crossSite ? 'none' : 'strict'
-  const domain = options && options.domain ? `;domain=${options.domain}` : ''
-  const secure = options && options.secure ? ';secure' : ''
-  const partitioned = options && options.partitioned ? ';partitioned' : ''
-  document.cookie = `${name}=${value};${expires};path=/;samesite=${sameSite}${domain}${secure}${partitioned}`
+export function setCookie(name: string, value: string, _expireDelay: number, _options?: CookieOptions) {
+  sessionStorage.setItem(name, value)
 }
 
 export function getCookie(name: string) {
-  return findCommaSeparatedValue(document.cookie, name)
+  return sessionStorage.getItem(name)
 }
 
 let initCookieParsed: Map<string, string> | undefined
@@ -41,8 +34,8 @@ export function resetInitCookies() {
   initCookieParsed = undefined
 }
 
-export function deleteCookie(name: string, options?: CookieOptions) {
-  setCookie(name, '', 0, options)
+export function deleteCookie(name: string, _options?: CookieOptions) {
+  sessionStorage.removeItem(name)
 }
 
 export function areCookiesAuthorized(options: CookieOptions): boolean {
